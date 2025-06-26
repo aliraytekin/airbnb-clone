@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:index, :show, :edit, :update]
+  resources :bookings, only: [:show, :edit, :update]
 
   devise_for :users
   resources :users, only: %i[show]
