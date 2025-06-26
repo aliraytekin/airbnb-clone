@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @bookings = Booking.find(params[:id])
   end
 
   def new
@@ -17,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.offer = @offer
     @booking.user = current_user
     if @booking.save
-      redirect_to @booking
+      redirect_to bookings_index_path, notice: "waiting on the host"
     else
       render :new, status: :unprocessable_entity
     end
